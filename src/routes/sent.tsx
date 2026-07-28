@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-export { Route as default } from "./index";
+import { MailView } from "@/components/mail-view";
+import { mockEmails } from "@/lib/mock-data";
+
 export const Route = createFileRoute("/sent")({
   head: () => ({ meta: [{ title: "Sent — MailFlow AI" }] }),
-  component: () => {
-    const Comp = require("./index").Route.options.component;
-    return <Comp />;
-  },
+  component: () => <MailView title="Sent" emails={mockEmails.slice(0, 12)} />,
 });
