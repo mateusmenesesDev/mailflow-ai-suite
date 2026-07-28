@@ -9,12 +9,97 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TrashRouteImport } from './routes/trash'
+import { Route as TemplatesRouteImport } from './routes/templates'
+import { Route as StarredRouteImport } from './routes/starred'
+import { Route as SpamRouteImport } from './routes/spam'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as SentRouteImport } from './routes/sent'
+import { Route as ListsRouteImport } from './routes/lists'
+import { Route as DraftsRouteImport } from './routes/drafts'
+import { Route as ContactsRouteImport } from './routes/contacts'
+import { Route as CampaignsRouteImport } from './routes/campaigns'
+import { Route as AutomationsRouteImport } from './routes/automations'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as AiTemplatesRouteImport } from './routes/ai-templates'
+import { Route as AiInsightsRouteImport } from './routes/ai-insights'
+import { Route as AiAssistantRouteImport } from './routes/ai-assistant'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TemplatesEditorRouteImport } from './routes/templates.editor'
 
+const TrashRoute = TrashRouteImport.update({
+  id: '/trash',
+  path: '/trash',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TemplatesRoute = TemplatesRouteImport.update({
+  id: '/templates',
+  path: '/templates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StarredRoute = StarredRouteImport.update({
+  id: '/starred',
+  path: '/starred',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpamRoute = SpamRouteImport.update({
+  id: '/spam',
+  path: '/spam',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SentRoute = SentRouteImport.update({
   id: '/sent',
   path: '/sent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ListsRoute = ListsRouteImport.update({
+  id: '/lists',
+  path: '/lists',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DraftsRoute = DraftsRouteImport.update({
+  id: '/drafts',
+  path: '/drafts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactsRoute = ContactsRouteImport.update({
+  id: '/contacts',
+  path: '/contacts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampaignsRoute = CampaignsRouteImport.update({
+  id: '/campaigns',
+  path: '/campaigns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AutomationsRoute = AutomationsRouteImport.update({
+  id: '/automations',
+  path: '/automations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiTemplatesRoute = AiTemplatesRouteImport.update({
+  id: '/ai-templates',
+  path: '/ai-templates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiInsightsRoute = AiInsightsRouteImport.update({
+  id: '/ai-insights',
+  path: '/ai-insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiAssistantRoute = AiAssistantRouteImport.update({
+  id: '/ai-assistant',
+  path: '/ai-assistant',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -22,40 +107,254 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TemplatesEditorRoute = TemplatesEditorRouteImport.update({
+  id: '/editor',
+  path: '/editor',
+  getParentRoute: () => TemplatesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ai-assistant': typeof AiAssistantRoute
+  '/ai-insights': typeof AiInsightsRoute
+  '/ai-templates': typeof AiTemplatesRoute
+  '/analytics': typeof AnalyticsRoute
+  '/automations': typeof AutomationsRoute
+  '/campaigns': typeof CampaignsRoute
+  '/contacts': typeof ContactsRoute
+  '/drafts': typeof DraftsRoute
+  '/lists': typeof ListsRoute
   '/sent': typeof SentRoute
+  '/settings': typeof SettingsRoute
+  '/spam': typeof SpamRoute
+  '/starred': typeof StarredRoute
+  '/templates': typeof TemplatesRouteWithChildren
+  '/trash': typeof TrashRoute
+  '/templates/editor': typeof TemplatesEditorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ai-assistant': typeof AiAssistantRoute
+  '/ai-insights': typeof AiInsightsRoute
+  '/ai-templates': typeof AiTemplatesRoute
+  '/analytics': typeof AnalyticsRoute
+  '/automations': typeof AutomationsRoute
+  '/campaigns': typeof CampaignsRoute
+  '/contacts': typeof ContactsRoute
+  '/drafts': typeof DraftsRoute
+  '/lists': typeof ListsRoute
   '/sent': typeof SentRoute
+  '/settings': typeof SettingsRoute
+  '/spam': typeof SpamRoute
+  '/starred': typeof StarredRoute
+  '/templates': typeof TemplatesRouteWithChildren
+  '/trash': typeof TrashRoute
+  '/templates/editor': typeof TemplatesEditorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ai-assistant': typeof AiAssistantRoute
+  '/ai-insights': typeof AiInsightsRoute
+  '/ai-templates': typeof AiTemplatesRoute
+  '/analytics': typeof AnalyticsRoute
+  '/automations': typeof AutomationsRoute
+  '/campaigns': typeof CampaignsRoute
+  '/contacts': typeof ContactsRoute
+  '/drafts': typeof DraftsRoute
+  '/lists': typeof ListsRoute
   '/sent': typeof SentRoute
+  '/settings': typeof SettingsRoute
+  '/spam': typeof SpamRoute
+  '/starred': typeof StarredRoute
+  '/templates': typeof TemplatesRouteWithChildren
+  '/trash': typeof TrashRoute
+  '/templates/editor': typeof TemplatesEditorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sent'
+  fullPaths:
+    | '/'
+    | '/ai-assistant'
+    | '/ai-insights'
+    | '/ai-templates'
+    | '/analytics'
+    | '/automations'
+    | '/campaigns'
+    | '/contacts'
+    | '/drafts'
+    | '/lists'
+    | '/sent'
+    | '/settings'
+    | '/spam'
+    | '/starred'
+    | '/templates'
+    | '/trash'
+    | '/templates/editor'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sent'
-  id: '__root__' | '/' | '/sent'
+  to:
+    | '/'
+    | '/ai-assistant'
+    | '/ai-insights'
+    | '/ai-templates'
+    | '/analytics'
+    | '/automations'
+    | '/campaigns'
+    | '/contacts'
+    | '/drafts'
+    | '/lists'
+    | '/sent'
+    | '/settings'
+    | '/spam'
+    | '/starred'
+    | '/templates'
+    | '/trash'
+    | '/templates/editor'
+  id:
+    | '__root__'
+    | '/'
+    | '/ai-assistant'
+    | '/ai-insights'
+    | '/ai-templates'
+    | '/analytics'
+    | '/automations'
+    | '/campaigns'
+    | '/contacts'
+    | '/drafts'
+    | '/lists'
+    | '/sent'
+    | '/settings'
+    | '/spam'
+    | '/starred'
+    | '/templates'
+    | '/trash'
+    | '/templates/editor'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AiAssistantRoute: typeof AiAssistantRoute
+  AiInsightsRoute: typeof AiInsightsRoute
+  AiTemplatesRoute: typeof AiTemplatesRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  AutomationsRoute: typeof AutomationsRoute
+  CampaignsRoute: typeof CampaignsRoute
+  ContactsRoute: typeof ContactsRoute
+  DraftsRoute: typeof DraftsRoute
+  ListsRoute: typeof ListsRoute
   SentRoute: typeof SentRoute
+  SettingsRoute: typeof SettingsRoute
+  SpamRoute: typeof SpamRoute
+  StarredRoute: typeof StarredRoute
+  TemplatesRoute: typeof TemplatesRouteWithChildren
+  TrashRoute: typeof TrashRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/trash': {
+      id: '/trash'
+      path: '/trash'
+      fullPath: '/trash'
+      preLoaderRoute: typeof TrashRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/templates': {
+      id: '/templates'
+      path: '/templates'
+      fullPath: '/templates'
+      preLoaderRoute: typeof TemplatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/starred': {
+      id: '/starred'
+      path: '/starred'
+      fullPath: '/starred'
+      preLoaderRoute: typeof StarredRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/spam': {
+      id: '/spam'
+      path: '/spam'
+      fullPath: '/spam'
+      preLoaderRoute: typeof SpamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sent': {
       id: '/sent'
       path: '/sent'
       fullPath: '/sent'
       preLoaderRoute: typeof SentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lists': {
+      id: '/lists'
+      path: '/lists'
+      fullPath: '/lists'
+      preLoaderRoute: typeof ListsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/drafts': {
+      id: '/drafts'
+      path: '/drafts'
+      fullPath: '/drafts'
+      preLoaderRoute: typeof DraftsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacts': {
+      id: '/contacts'
+      path: '/contacts'
+      fullPath: '/contacts'
+      preLoaderRoute: typeof ContactsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/campaigns': {
+      id: '/campaigns'
+      path: '/campaigns'
+      fullPath: '/campaigns'
+      preLoaderRoute: typeof CampaignsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/automations': {
+      id: '/automations'
+      path: '/automations'
+      fullPath: '/automations'
+      preLoaderRoute: typeof AutomationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-templates': {
+      id: '/ai-templates'
+      path: '/ai-templates'
+      fullPath: '/ai-templates'
+      preLoaderRoute: typeof AiTemplatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-insights': {
+      id: '/ai-insights'
+      path: '/ai-insights'
+      fullPath: '/ai-insights'
+      preLoaderRoute: typeof AiInsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-assistant': {
+      id: '/ai-assistant'
+      path: '/ai-assistant'
+      fullPath: '/ai-assistant'
+      preLoaderRoute: typeof AiAssistantRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -65,13 +364,56 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/templates/editor': {
+      id: '/templates/editor'
+      path: '/editor'
+      fullPath: '/templates/editor'
+      preLoaderRoute: typeof TemplatesEditorRouteImport
+      parentRoute: typeof TemplatesRoute
+    }
   }
 }
 
+interface TemplatesRouteChildren {
+  TemplatesEditorRoute: typeof TemplatesEditorRoute
+}
+
+const TemplatesRouteChildren: TemplatesRouteChildren = {
+  TemplatesEditorRoute: TemplatesEditorRoute,
+}
+
+const TemplatesRouteWithChildren = TemplatesRoute._addFileChildren(
+  TemplatesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AiAssistantRoute: AiAssistantRoute,
+  AiInsightsRoute: AiInsightsRoute,
+  AiTemplatesRoute: AiTemplatesRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  AutomationsRoute: AutomationsRoute,
+  CampaignsRoute: CampaignsRoute,
+  ContactsRoute: ContactsRoute,
+  DraftsRoute: DraftsRoute,
+  ListsRoute: ListsRoute,
   SentRoute: SentRoute,
+  SettingsRoute: SettingsRoute,
+  SpamRoute: SpamRoute,
+  StarredRoute: StarredRoute,
+  TemplatesRoute: TemplatesRouteWithChildren,
+  TrashRoute: TrashRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
