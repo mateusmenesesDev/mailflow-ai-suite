@@ -101,17 +101,26 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isMarketingPage = pathname === "/";
 
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <SidebarProvider>
-          <AppSidebar />
-          <SidebarInset className="min-w-0 overflow-hidden">
+        {isMarketingPage ? (
+          <>
             <Outlet />
-          </SidebarInset>
-          <Toaster />
-        </SidebarProvider>
+            <Toaster />
+          </>
+        ) : (
+          <SidebarProvider>
+            <AppSidebar />
+            <SidebarInset className="min-w-0 overflow-hidden">
+              <Outlet />
+            </SidebarInset>
+            <Toaster />
+          </SidebarProvider>
+        )}
       </ThemeProvider>
     </QueryClientProvider>
   );
