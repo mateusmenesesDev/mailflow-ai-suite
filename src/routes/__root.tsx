@@ -64,7 +64,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Plataforma completa que combina caixa de entrada, campanhas de marketing, automações e inteligência artificial em um só lugar.",
       },
       { property: "og:title", content: "MailFlow AI" },
-      { property: "og:description", content: "A caixa de entrada e o hub de marketing potencializados por IA." },
+      {
+        property: "og:description",
+        content: "A caixa de entrada e o hub de marketing potencializados por IA.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

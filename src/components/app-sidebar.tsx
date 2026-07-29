@@ -114,7 +114,9 @@ export function AppSidebar() {
               className="mx-1 h-auto justify-start gap-2 px-2 py-1.5 group-data-[collapsible=icon]:hidden"
             >
               <Avatar className="h-6 w-6">
-                <AvatarFallback className="bg-primary/15 text-[10px] text-primary">AC</AvatarFallback>
+                <AvatarFallback className="bg-primary/15 text-[10px] text-primary">
+                  AC
+                </AvatarFallback>
               </Avatar>
               <div className="flex min-w-0 flex-col items-start">
                 <span className="truncate text-xs font-medium">Acme Corp</span>
@@ -191,7 +193,9 @@ export function AppSidebar() {
         </SidebarMenu>
         <div className="flex items-center gap-2 px-2 py-1.5 group-data-[collapsible=icon]:hidden">
           <Avatar className="h-7 w-7">
-            <AvatarFallback className="bg-violet-500/20 text-[10px] text-violet-300">JD</AvatarFallback>
+            <AvatarFallback className="bg-violet-500/20 text-[10px] text-violet-300">
+              JD
+            </AvatarFallback>
           </Avatar>
           <div className="flex min-w-0 flex-col">
             <span className="truncate text-xs font-medium">João Dev</span>

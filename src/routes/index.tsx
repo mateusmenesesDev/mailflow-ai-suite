@@ -146,7 +146,13 @@ const plans = [
     price: "R$ 97",
     period: "/mês",
     description: "Ideal para freelancers e pequenas equipes.",
-    features: ["Até 5.000 contatos", "3 usuários", "Automações básicas", "Templates com IA", "Suporte por email"],
+    features: [
+      "Até 5.000 contatos",
+      "3 usuários",
+      "Automações básicas",
+      "Templates com IA",
+      "Suporte por email",
+    ],
     cta: "Começar grátis",
     highlighted: false,
   },
@@ -269,8 +275,8 @@ function LandingPage() {
               Email, marketing e IA em uma única experiência
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-              MailFlow AI une o melhor do Gmail, Mailchimp, Brevo e ChatGPT em uma plataforma rápida,
-              bonita e pronta para escalar. Criada para equipes que não aceitam ferramentas
+              MailFlow AI une o melhor do Gmail, Mailchimp, Brevo e ChatGPT em uma plataforma
+              rápida, bonita e pronta para escalar. Criada para equipes que não aceitam ferramentas
               desconectadas.
             </p>
 
@@ -532,10 +538,7 @@ function LandingPage() {
                       ))}
                     </ul>
                     <Link to="/inbox" className="mt-6">
-                      <Button
-                        className="w-full"
-                        variant={plan.highlighted ? "default" : "outline"}
-                      >
+                      <Button className="w-full" variant={plan.highlighted ? "default" : "outline"}>
                         {plan.cta}
                       </Button>
                     </Link>
@@ -567,9 +570,7 @@ function LandingPage() {
                     {faq.question}
                     <ChevronRight className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-90" />
                   </summary>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {faq.answer}
-                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{faq.answer}</p>
                 </details>
               ))}
             </div>
@@ -780,4 +781,3 @@ function BackgroundGlow() {
     </div>
   );
 }
-
