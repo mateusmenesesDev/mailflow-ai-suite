@@ -64,13 +64,13 @@ const primaryFeatures = [
       "Reuna todos os seus emails em um só lugar. Filtros inteligentes, respostas rápidas e rótulos automáticos mantêm você no controle.",
   },
   {
-    icon: MegaphoneIcon,
+    icon: Megaphone,
     title: "Campanhas que convertem",
     description:
       "Crie, personalize e envie campanhas em minutos. Segmentação avançada, templates profissionais e métricas em tempo real.",
   },
   {
-    icon: WorkflowIcon,
+    icon: Workflow,
     title: "Automações visuais",
     description:
       "Construa jornadas de clientes com um canvas intuitivo. Gatilhos, condições e ações conectadas sem escrever código.",
