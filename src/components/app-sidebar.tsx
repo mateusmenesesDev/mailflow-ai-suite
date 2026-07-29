@@ -48,7 +48,7 @@ import {
 import { useTheme } from "./theme-provider";
 
 const mailItems = [
-  { title: "Inbox", url: "/", icon: Inbox, badge: "12" },
+  { title: "Inbox", url: "/inbox", icon: Inbox, badge: "12" },
   { title: "Sent", url: "/sent", icon: Send },
   { title: "Drafts", url: "/drafts", icon: FileEdit, badge: "3" },
   { title: "Starred", url: "/starred", icon: Star },
