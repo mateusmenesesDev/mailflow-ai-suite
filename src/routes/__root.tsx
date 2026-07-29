@@ -3,6 +3,7 @@ import {
   Outlet,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -63,7 +64,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Plataforma completa que combina caixa de entrada, campanhas de marketing, automações e inteligência artificial em um só lugar.",
       },
       { property: "og:title", content: "MailFlow AI" },
-      { property: "og:description", content: "A caixa de entrada e o hub de marketing potencializados por IA." },
+      {
+        property: "og:description",
+        content: "A caixa de entrada e o hub de marketing potencializados por IA.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -71,7 +75,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" as any },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
@@ -100,17 +104,26 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isMarketingPage = pathname === "/";
 
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <SidebarProvider>
-          <AppSidebar />
-          <SidebarInset className="min-w-0 overflow-hidden">
+        {isMarketingPage ? (
+          <>
             <Outlet />
-          </SidebarInset>
-          <Toaster />
-        </SidebarProvider>
+            <Toaster />
+          </>
+        ) : (
+          <SidebarProvider>
+            <AppSidebar />
+            <SidebarInset className="min-w-0 overflow-hidden">
+              <Outlet />
+            </SidebarInset>
+            <Toaster />
+          </SidebarProvider>
+        )}
       </ThemeProvider>
     </QueryClientProvider>
   );

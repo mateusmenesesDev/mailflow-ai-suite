@@ -1,3 +1,4 @@
+import { type ComponentType } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
   Inbox,
@@ -48,7 +49,7 @@ import {
 import { useTheme } from "./theme-provider";
 
 const mailItems = [
-  { title: "Inbox", url: "/", icon: Inbox, badge: "12" },
+  { title: "Inbox", url: "/inbox", icon: Inbox, badge: "12" },
   { title: "Sent", url: "/sent", icon: Send },
   { title: "Drafts", url: "/drafts", icon: FileEdit, badge: "3" },
   { title: "Starred", url: "/starred", icon: Star },
@@ -75,7 +76,12 @@ export function AppSidebar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const { theme, toggle } = useTheme();
 
-  const renderItem = (item: { title: string; url: string; icon: any; badge?: string }) => {
+  const renderItem = (item: {
+    title: string;
+    url: string;
+    icon: ComponentType<{ className?: string }>;
+    badge?: string;
+  }) => {
     const active = pathname === item.url;
     return (
       <SidebarMenuItem key={item.title}>
@@ -114,7 +120,9 @@ export function AppSidebar() {
               className="mx-1 h-auto justify-start gap-2 px-2 py-1.5 group-data-[collapsible=icon]:hidden"
             >
               <Avatar className="h-6 w-6">
-                <AvatarFallback className="bg-primary/15 text-[10px] text-primary">AC</AvatarFallback>
+                <AvatarFallback className="bg-primary/15 text-[10px] text-primary">
+                  AC
+                </AvatarFallback>
               </Avatar>
               <div className="flex min-w-0 flex-col items-start">
                 <span className="truncate text-xs font-medium">Acme Corp</span>
@@ -191,7 +199,9 @@ export function AppSidebar() {
         </SidebarMenu>
         <div className="flex items-center gap-2 px-2 py-1.5 group-data-[collapsible=icon]:hidden">
           <Avatar className="h-7 w-7">
-            <AvatarFallback className="bg-violet-500/20 text-[10px] text-violet-300">JD</AvatarFallback>
+            <AvatarFallback className="bg-violet-500/20 text-[10px] text-violet-300">
+              JD
+            </AvatarFallback>
           </Avatar>
           <div className="flex min-w-0 flex-col">
             <span className="truncate text-xs font-medium">João Dev</span>
