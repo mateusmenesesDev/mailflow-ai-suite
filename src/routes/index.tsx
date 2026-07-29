@@ -20,6 +20,7 @@ import {
   Cpu,
   MessageSquare,
   Workflow,
+  Megaphone,
   PieChart,
   Layers,
 } from "lucide-react";
