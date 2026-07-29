@@ -16,6 +16,7 @@ import { Route as SpamRouteImport } from './routes/spam'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as SentRouteImport } from './routes/sent'
 import { Route as ListsRouteImport } from './routes/lists'
+import { Route as InboxRouteImport } from './routes/inbox'
 import { Route as DraftsRouteImport } from './routes/drafts'
 import { Route as ContactsRouteImport } from './routes/contacts'
 import { Route as CampaignsRouteImport } from './routes/campaigns'
@@ -60,6 +61,11 @@ const SentRoute = SentRouteImport.update({
 const ListsRoute = ListsRouteImport.update({
   id: '/lists',
   path: '/lists',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InboxRoute = InboxRouteImport.update({
+  id: '/inbox',
+  path: '/inbox',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DraftsRoute = DraftsRouteImport.update({
@@ -123,6 +129,7 @@ export interface FileRoutesByFullPath {
   '/campaigns': typeof CampaignsRoute
   '/contacts': typeof ContactsRoute
   '/drafts': typeof DraftsRoute
+  '/inbox': typeof InboxRoute
   '/lists': typeof ListsRoute
   '/sent': typeof SentRoute
   '/settings': typeof SettingsRoute
@@ -142,6 +149,7 @@ export interface FileRoutesByTo {
   '/campaigns': typeof CampaignsRoute
   '/contacts': typeof ContactsRoute
   '/drafts': typeof DraftsRoute
+  '/inbox': typeof InboxRoute
   '/lists': typeof ListsRoute
   '/sent': typeof SentRoute
   '/settings': typeof SettingsRoute
@@ -162,6 +170,7 @@ export interface FileRoutesById {
   '/campaigns': typeof CampaignsRoute
   '/contacts': typeof ContactsRoute
   '/drafts': typeof DraftsRoute
+  '/inbox': typeof InboxRoute
   '/lists': typeof ListsRoute
   '/sent': typeof SentRoute
   '/settings': typeof SettingsRoute
@@ -183,6 +192,7 @@ export interface FileRouteTypes {
     | '/campaigns'
     | '/contacts'
     | '/drafts'
+    | '/inbox'
     | '/lists'
     | '/sent'
     | '/settings'
@@ -202,6 +212,7 @@ export interface FileRouteTypes {
     | '/campaigns'
     | '/contacts'
     | '/drafts'
+    | '/inbox'
     | '/lists'
     | '/sent'
     | '/settings'
@@ -221,6 +232,7 @@ export interface FileRouteTypes {
     | '/campaigns'
     | '/contacts'
     | '/drafts'
+    | '/inbox'
     | '/lists'
     | '/sent'
     | '/settings'
@@ -241,6 +253,7 @@ export interface RootRouteChildren {
   CampaignsRoute: typeof CampaignsRoute
   ContactsRoute: typeof ContactsRoute
   DraftsRoute: typeof DraftsRoute
+  InboxRoute: typeof InboxRoute
   ListsRoute: typeof ListsRoute
   SentRoute: typeof SentRoute
   SettingsRoute: typeof SettingsRoute
@@ -299,6 +312,13 @@ declare module '@tanstack/react-router' {
       path: '/lists'
       fullPath: '/lists'
       preLoaderRoute: typeof ListsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inbox': {
+      id: '/inbox'
+      path: '/inbox'
+      fullPath: '/inbox'
+      preLoaderRoute: typeof InboxRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/drafts': {
@@ -396,6 +416,7 @@ const rootRouteChildren: RootRouteChildren = {
   CampaignsRoute: CampaignsRoute,
   ContactsRoute: ContactsRoute,
   DraftsRoute: DraftsRoute,
+  InboxRoute: InboxRoute,
   ListsRoute: ListsRoute,
   SentRoute: SentRoute,
   SettingsRoute: SettingsRoute,
