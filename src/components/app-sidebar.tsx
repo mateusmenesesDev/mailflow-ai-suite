@@ -76,7 +76,12 @@ export function AppSidebar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const { theme, toggle } = useTheme();
 
-  const renderItem = (item: { title: string; url: string; icon: any; badge?: string }) => {
+  const renderItem = (item: {
+    title: string;
+    url: string;
+    icon: ComponentType<{ className?: string }>;
+    badge?: string;
+  }) => {
     const active = pathname === item.url;
     return (
       <SidebarMenuItem key={item.title}>
