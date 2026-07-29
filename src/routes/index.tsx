@@ -781,10 +781,3 @@ function BackgroundGlow() {
   );
 }
 
-function MegaphoneIcon(props: React.ComponentProps<"svg">) {
-  return <Megaphone {...props} />;
-}
-
-function WorkflowIcon(props: React.ComponentProps<"svg">) {
-  return <Workflow {...props} />;
-}
